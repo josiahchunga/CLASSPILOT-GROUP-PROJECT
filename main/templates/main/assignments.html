@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% block title %}Assignments | ClassPilot{% endblock %}
+{% block content %}
+<section class="card content-card">
+    <h1>Assignments</h1>
+    <p class="intro">Your assignments are delivered from the backend so the page always stays up to date.</p>
+    {% if items.exists %}
+        <div class="item-list">
+            {% for item in items %}
+                <article class="resource-card">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.description }}</p>
+                    <a class="link-button" href="{{ item.download_url }}" target="_blank">Download assignment</a>
+                    <footer>Posted by {% if item.author %}{{ item.author.username }}{% else %}System{% endif %} on {{ item.created_at|date:'M d, Y' }}</footer>
+                    {% if item.author_id == user.id %}
+                        <div class="item-actions">
+                            <form method="post" action="{% url 'delete_assignment' item.pk %}" onsubmit="return confirm('Delete this assignment?');">
+                                {% csrf_token %}
+                                <button type="submit" class="button button-danger">Delete</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="placeholder">
+            <h2>No assignments published yet</h2>
+            <p>When a lecturer uploads assignments, they will show up here.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
