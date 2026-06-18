@@ -1,2 +1,0 @@
-# CLASSPILOT-GROUP-PROJECT
-website
