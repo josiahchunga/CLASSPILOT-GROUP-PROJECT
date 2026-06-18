@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% block title %}Login | ClassPilot{% endblock %}
+{% block content %}
+<section class="card card-form">
+    <h1>Welcome back to ClassPilot</h1>
+    <p class="intro">Sign in to access announcements, notes, and assignments.</p>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="form-errors">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="field-row">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="form-errors">{{ form.username.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="field-row">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class="form-errors">{{ form.password.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="button button-primary">Login</button>
+            <a class="button button-secondary" href="{% url 'register' %}">Create account</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

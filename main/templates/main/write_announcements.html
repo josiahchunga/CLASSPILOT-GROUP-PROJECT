@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block title %}Write Announcement | ClassPilot{% endblock %}
+{% block content %}
+<section class="card card-form">
+    <h1>Write an Announcement</h1>
+    <p class="intro">Class representatives and staff can post announcements for the whole class.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="field-row">
+            <label for="id_title">Title</label>
+            {{ form.title }}
+        </div>
+        <div class="field-row">
+            <label for="id_message">Message</label>
+            {{ form.message }}
+        </div>
+        <div class="form-actions">
+            <button class="button button-primary" type="submit">Post announcement</button>
+            <a class="button button-secondary" href="{% url 'announcements' %}">Back to announcements</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
