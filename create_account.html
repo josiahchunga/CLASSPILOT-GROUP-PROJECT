@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #welcoming {
+    background-color: rgb(9, 112, 112);
+    color: white; /* Added for readability */
+    font-size: xx-large;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+body {
+    background-color: azure;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* This centers the form horizontally */
+    justify-content: center; /* This centers the form vertically */
+    min-height: 100vh;      /* Takes up the whole screen height */
+}
+
+#first_form {
+    background: white;      /* Makes the form stand out */
+    padding: 40px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Adds stability/depth */
+    width: 100%;
+    max-width: 400px;       /* Keeps it from getting too wide */
+}
+
+/* Fix your button to look like a button */
+.button {
+     background-color: black;
+     color: white;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: larger;
+}
+
+.buttoncontainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between Login button and Account link */
+    margin-top: 20px;
+}
+
+/* Your other existing styles */
+.footer {
+    margin-top: 20px;
+    color: rgb(8, 8, 3);
+    font-size: medium;
+    text-align: center;
+}
+
+/* This makes the label and input sit side-by-side */
+label, input, select {
+    display: inline-block;
+    vertical-align: middle; /* Keeps them aligned in the center */
+}
+
+/* Give labels a fixed width so the boxes line up vertically */
+label {
+    width: 150px; 
+    text-align: right; /* Aligns label text to the boxes */
+    margin-right: 10px;
+    font-size: x-large
+}
+input{
+    font-size: x-large;
+}
+#role{
+font-size: x-large;
+width: 150px; 
+}
+    </style>
+    <title>class pilot</title> 
+  <link rel="stylesheet" href="css/style.css" media="all" />
+</head>
+<body>
+        <h1 id="welcoming">welcome to class pilot,,,,,,,,, <div>please create an account by filling in the form below!!!</div> </h1>
+        <form id="CreateAccount"> 
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="********" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="email96@gmail.com" required><br><br>
+        <label for="phoneNumber">Phone Number:</label>
+         <input type="number" id="phoneNumber" name="phoneNumber" placeholder="0999-99-99-99"><br><br>
+         <label for="role" id="role">Role:</label>
+     <select name="Role" id="role">      
+          <option value="student">student</option>
+          <option value="classrep/student">classrep/student</option>
+          <option value="lecture">lecture</option>
+          </select><br><br>
+           <button type="submit" class="button">create account</button> | <a href="login.html" id="acco">Already have an account?</a> 
+ </form>
+ <hr>
+    <footer  class="footer">
+        <p>&copy; 2 0 2 6 c l a s s p i l o t p r o j e c t</p>
+    </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

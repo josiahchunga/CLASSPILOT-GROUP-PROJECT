@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    /* 1. This centers EVERYTHING on the screen */
+body {
+    text-align: center;
+    background-color: azure;
+    margin: 50px auto; 
+    max-width: 500px;  
+}
+
+/* 2. This keeps the form fields organized */
+#first_form {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: inline-block; 
+    width: 100%;
+}
+
+/* 3. SHORTENED input boxes */
+input {
+    margin-bottom: 10px;
+    display: block;
+    /* Changed from 90% to a smaller fixed size */
+    width: 200px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px; /* Added padding to make them look better */
+    font-size: larger;
+}
+#name{
+    font-size: x-large;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+}
+   </style>
+    <title>class pilot</title>
+  <link rel="stylesheet" href="css/style.css" media="all" />
+</head>
+<body>
+    <h1 id="welcoming">welcome to class pilot,,,,,,, fill in the form below!!!!!!!</h1>
+    <form id="first_form"> 
+        <label for="username" id="name">Username:</label>
+        <input type="text" id="username" name="username" placeholder="username" required><br><br>
+         <label for="Password" id="name">Password:</label>
+        <input type="password" id="Password" name="Password" placeholder="Password" required><br><br>
+
+        <div class="buttoncontainer">
+            <div class="buttons">
+                <button type="submit" class="button">Login</button> OR 
+                <button type="button" class="button"><a href="create_account.html" id="acc">create account</a></button> 
+            </div>
+        </div>
+    </form><br><br>
+    <hr id="line">
+    <footer class="footer">
+        <p>&copy; 2 0 2 6 c l a s s p i l o t p r o j e c t</p>
+    </footer>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
