@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Timetable</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 20px; }
+
+        .timetable-outer {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* The scrolling container */
+        .timetable-scroll {
+            overflow-x: auto;
+            position: relative;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 800px; /* Forces scroll on smaller screens */
+        }
+
+        th, td {
+            border: 1px solid #eef0f2;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Header Row Styles */
+        thead tr { background-color: #007bff; color: white; }
+        th { font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 13px; }
+
+        /* Time Column (Sticky) */
+        .time-col {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+            width: 120px;
+            position: sticky;
+            left: 0;
+            z-index: 10;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+
+        /* Course Card Styling */
+        .course-card {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .course-name { font-weight: bold; display: block; color: #0056b3; }
+        .room { font-size: 11px; color: #666; margin-top: 4px; display: block; }
+
+        /* Different colors for different subjects */
+        .math { border-color: #28a745; background: #e8f5e9; }
+        .math .course-name { color: #1b5e20; }
+        
+        .physics { border-color: #ffc107; background: #fff8e1; }
+        .physics .course-name { color: #7f6000; }
+
+        /* Empty slot hover effect */
+        td:not(.time-col):hover { background-color: #fcfcfc; }
+    </style>
+  <link rel="stylesheet" href="css/style.css" media="all" />
+</head>
+<body>
+
+<div class="timetable-outer">
+    <div class="timetable-scroll">
+        <table>
+            <thead>
+                <tr>
+                    <th class="time-col">Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="time-col">08:00 - 10:00</td>
+                    <td>
+                        <div class="course-card">
+                            <span class="course-name">Real Analysis</span>
+                            <span class="room">CR 15</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="course-card math">
+                            <span class="course-name">Advanced progrsmming practices</span>
+                            <span class="room">CR19</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="course-card">
+                            <span class="course-name">Web Development</span>
+                            <span class="room">Lab 102</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                    <td class="time-col">10:00 - 12:00</td>
+                    <td></td>
+                    <td>
+                        <div class="course-card physics">
+                            <span class="course-name">Quantum Physics</span>
+                            <span class="room">Room 304</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="course-card physics">
+                            <span class="course-name">Quantum Physics</span>
+                            <span class="room">Room 304</span>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                    <td class="time-col">12:00 - 14:00</td>
+                    <td colspan="5" style="background: #fafafa; color: #bbb; font-style: italic; font-size: 12px;">Lunch Break</td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr>
+                   <div class="course-card physics">
+                            <span class="course-name">Quantum Physics</span>
+                            <span class="room">Room 304</span>
+                   </div>
+                 </tr>
+                 <!-- Row 5 -->
+ <tr>
+                    <td class="time-col">14:00 - 16:00</td>
+                    <td>
+                        <div class="course-card math">
+                            <span class="course-name">Statistical Programming</span>
+                            <span class="room">CR 19</span>
+                        </div>
+                    </td>
+                 <!-- Row 6 -->
+                <tr>
+                    <td class="time-col">16:00 - 18:00</td>
+                    <td>
+                        <div class="course-card math">
+                            <span class="course-name">Linear Algebra</span>
+                            <span class="room">Hall B</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="course-card">
+                            <span class="course-name">Database Systems</span>
+                            <span class="room">Lab 201</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
