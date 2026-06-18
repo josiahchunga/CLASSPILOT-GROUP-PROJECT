@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block title %}Upload Notes | ClassPilot{% endblock %}
+{% block content %}
+<section class="card card-form">
+    <h1>Upload Notes</h1>
+    <p class="intro">Lecturers can publish notes directly to the backend.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="field-row">
+            <label for="id_title">Title</label>
+            {{ form.title }}
+        </div>
+        <div class="field-row">
+            <label for="id_description">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="field-row">
+            <label for="id_download_url">Download URL</label>
+            {{ form.download_url }}
+        </div>
+        <div class="form-actions">
+            <button class="button button-primary" type="submit">Publish note</button>
+            <a class="button button-secondary" href="{% url 'notes' %}">Back to notes</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

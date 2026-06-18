@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% block title %}Notes | ClassPilot{% endblock %}
+{% block content %}
+<section class="card content-card">
+    <h1>Notes</h1>
+    <p class="intro">Backend notes are shown here. Download links come from the server.</p>
+    {% if items.exists %}
+        <div class="item-list">
+            {% for note in items %}
+                <article class="resource-card">
+                    <h2>{{ note.title }}</h2>
+                    <p>{{ note.description }}</p>
+                    <a class="link-button" href="{{ note.download_url }}" target="_blank">Download note</a>
+                    <footer>Uploaded by {% if note.author %}{{ note.author.username }}{% else %}System{% endif %} on {{ note.created_at|date:'M d, Y' }}</footer>
+                    {% if note.author_id == user.id %}
+                        <div class="item-actions">
+                            <form method="post" action="{% url 'delete_note' note.pk %}" onsubmit="return confirm('Delete this note?');">
+                                {% csrf_token %}
+                                <button type="submit" class="button button-danger">Delete</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="placeholder">
+            <h2>Data will appear here</h2>
+            <p>Notes uploaded through the backend will appear in this section.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% block title %}Announcements | ClassPilot{% endblock %}
+{% block content %}
+<section class="card content-card">
+    <h1>Announcements</h1>
+    <p class="intro">These announcements are loaded from your ClassPilot backend.</p>
+    {% if items.exists %}
+        <div class="item-list">
+            {% for item in items %}
+                <article class="resource-card">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.message }}</p>
+                    <footer>Posted by {% if item.author %}{{ item.author.username }}{% else %}System{% endif %} on {{ item.created_at|date:'M d, Y H:i' }}</footer>
+                    {% if item.author_id == user.id %}
+                        <div class="item-actions">
+                            <form method="post" action="{% url 'delete_announcement' item.pk %}" onsubmit="return confirm('Delete this announcement?');">
+                                {% csrf_token %}
+                                <button type="submit" class="button button-danger">Delete</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="placeholder">
+            <h2>No announcements yet</h2>
+            <p>Once an instructor or class rep posts announcements, they will appear here.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
